@@ -1,14 +1,28 @@
-""" Finds the solution to all calculus examn questions """
+"""
+    collector.py <number (optional)>
+
+    Brute forces all questions and stores them in the database
+        note: Will remove database.
+
+    Can limit search if supplied with a number.
+"""
 
 import sys
+import os
 import sqlite3
 import mastermind_best
 
+DATABASE_FILENAME = "solutions_best.db"
+
 def main(start):
     """ Main entry point of the program """
-    conn = sqlite3.connect('solutions_best.db')
+    try:
+        os.remove(DATABASE_FILENAME)
+    except OSError:
+        pass
 
-    # conn.execute("DROP TABLE answers")
+    conn = sqlite3.connect(DATABASE_FILENAME)
+
     conn.execute("CREATE TABLE answers (question int, guess int, result int, attempt int)")
     conn.commit()
 

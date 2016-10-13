@@ -1,5 +1,9 @@
 """
-    Bruteforces the solution of the calculus examn of Aarhus University
+    mastermind_best.py <number>
+
+    Brute forces the solution by 100000000 -> 2000000000 -> .. 312124121
+    Worst case: length*(domain-1)
+    This worst case: 12*(4-1) = 36
 """
 
 import sys

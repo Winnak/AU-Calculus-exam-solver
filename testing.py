@@ -1,4 +1,9 @@
-""" todo """
+"""
+    testing.py <number> <question (optional)>
+
+    Looks for the solution in the database (solution_best.db) for quick look ups.
+    Can also just return the answer for a particular question.
+"""
 
 import sys
 import sqlite3
@@ -7,12 +12,15 @@ import urllib.parse
 
 TARGET = "http://merry2.math.au.dk/cgi-bin/prtestanswer1"
 
-def main(target):
+def main(target, question=-1):
     """ Finds the correct guess for the target question """
     conn = sqlite3.connect('solutions_best.db')
     sql = "SELECT guess FROM answers WHERE (question = {})".format(int(target))
     result = conn.execute(sql).fetchone()[0]
-    print(result)
+    if int(question) > 0 and int(question) <= 12:
+        print(str(result)[int(question) - 1])
+    else:
+        print(result)
 
 def test_guess(target, guess):
     """ Sends the guess to the server to get the amount of correct answers """
@@ -33,3 +41,5 @@ def test_guess(target, guess):
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         main(sys.argv[1])
+    if len(sys.argv) == 3:
+        main(sys.argv[1], sys.argv[2])

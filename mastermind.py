@@ -1,5 +1,11 @@
 """
-    Bruteforces the solution of the calculus examn of Aarhus University
+    mastermind.py <number>
+
+    Finds the solution by randomly shuffling a string of 1, 2, 3 and 4
+
+    Worst case: (length^(frequency))/frequency
+    This worst case: (12*4)/4 = 5184
+        note: frequency is around 3, but could technically be 4
 """
 
 import sys

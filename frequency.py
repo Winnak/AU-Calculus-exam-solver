@@ -1,4 +1,8 @@
-""" Finds the frequency of 1 and 2 and 3 and 4 in the solution """
+"""
+    frequency.py
+
+    Prints the frequency of 1 and 2 and 3 and 4 in the solution_best.db
+"""
 import sqlite3
 
 def main():
