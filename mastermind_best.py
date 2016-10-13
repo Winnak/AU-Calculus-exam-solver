@@ -17,8 +17,8 @@ def find_answer(target):
         print("0 < NUMBER <= 10000")
         return
 
+    tries = 0
     result = list("000000000000")
-    tries = 1
     current_result = 0
     while current_result < CORRECT:
         while True:
@@ -27,15 +27,16 @@ def find_answer(target):
             if testing.test_guess(target, "".join(result)) > current_result:
                 current_result += 1
                 break
+            tries += 1
             result[current_result] = '2'
             if testing.test_guess(target, "".join(result)) > current_result:
                 current_result += 1
                 break
+            tries += 1
             result[current_result] = '3'
             if testing.test_guess(target, "".join(result)) > current_result:
                 current_result += 1
                 break
-
             result[current_result] = '4'
             current_result += 1
             break
