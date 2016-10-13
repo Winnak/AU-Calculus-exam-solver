@@ -1,4 +1,4 @@
-""" TODO """
+""" Finds the frequency of 1 and 2 and 3 and 4 in the solution """
 import sqlite3
 
 def main():

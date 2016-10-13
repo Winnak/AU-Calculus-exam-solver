@@ -2,7 +2,6 @@
 
 import sys
 import sqlite3
-# import mastermind
 import mastermind_best
 
 def main(start):

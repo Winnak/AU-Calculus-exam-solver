@@ -1,8 +1,5 @@
 """
     Bruteforces the solution of the calculus examn of Aarhus University
-
-    1 dependencies:
-        * BeautifulSoup (pip install BeautifulSoup4)
 """
 
 import sys

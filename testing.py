@@ -4,7 +4,6 @@ import sys
 import sqlite3
 import urllib.request
 import urllib.parse
-from bs4 import BeautifulSoup
 
 TARGET = "http://merry2.math.au.dk/cgi-bin/prtestanswer1"
 
@@ -21,14 +20,15 @@ def test_guess(target, guess):
     urlvalues = urllib.parse.urlencode(payload)
     urlvalues = urlvalues.encode('ascii')
     respons = urllib.request.urlopen(TARGET, urlvalues, 10000)
-    result = respons.read()
+    result = str(respons.read())
     if result is None:
         raise Exception("Did not get any data back")
-    soup = BeautifulSoup(result, "html.parser")
-    if soup.h4 is None:
-        print(soup.prettify())
-        raise Exception("what the fuck")
-    return int(soup.h4.get_text()[-2:])
+    start, end = result.find('<h4>') + 35, result.find('</h4>')
+    assert len(result) > start
+    assert len(result) > end
+    if start == -1 or end == -1:
+        raise Exception("Could not find parse result")
+    return int(result[start:end])
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
