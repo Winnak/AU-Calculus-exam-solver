@@ -6,9 +6,9 @@ Please check the license before using the tool.
 
 ## Usage
 * `mastermind.py <number>`
-Finds the solution by randomly shuffling a string of 1, 2, 3 and 4 (worst case: length^(frequency)/frequency (12\*4/frequency = 5184, note: frequency is around 3, but could technically be 4))
+Finds the solution by randomly shuffling a string of 1, 2, 3 and 4 (worst case: length^(frequency)/frequency ((12\*4)/4 = 5184, (note: frequency is around 3, but could technically be 4))
 
-* `mastermind_best.py <number>` Brute forces the solution by 100000000 -> 2000000000 -> .. 312124121 (worst case: length\*(domain-1) (12\*3 = 36))
+* `mastermind_best.py <number>` Brute forces the solution by 100000000 -> 2000000000 -> .. 312124121 (worst case: length\*(domain-1) (12\*(4-1) = 36))
 
 * `testing.py <number> <question (optional)>` Looks for the solution in the database (`solution_best.db`) for quick look ups. Can also just return the answer for a particular question.
 
